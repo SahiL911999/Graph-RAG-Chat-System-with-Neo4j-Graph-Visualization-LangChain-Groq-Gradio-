@@ -1,0 +1,12 @@
+langchain
+neo4j
+groq
+huggingface_hub
+python-dotenv
+pypdf
+pydantic
+langchain-neo4j
+langchain_community
+langchain_experimental
+langchain_groq
+langchain_huggingface
