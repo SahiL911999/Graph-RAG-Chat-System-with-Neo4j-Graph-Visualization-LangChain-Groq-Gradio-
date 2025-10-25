@@ -8,8 +8,7 @@ The following key imports and initializations are performed:
 - `load_dotenv`: Loads environment variables from a `.env` file.
 - `Neo4jGraph`: For interacting with Neo4j databases.
 - LangChain components such as `RunnableBranch`, `RunnableLambda`, `ChatPromptTemplate`, and `LLMGraphTransformer`.
-- `ChatGroq` and `ChatOpenAI`: For using Groq and OpenAI models.
-- Other utilities like `WikipediaLoader`, `TokenTextSplitter`, and `PyPDFLoader` for document processing.
+- `ChatGroq` and `ChatOpenAI`: For using Groq and OpenAI models
 
 Additionally, the `ChatGroq` instance is initialized with specific parameters for temperature and model name.
 """
@@ -425,7 +424,7 @@ def run_interactive_chat(verbose=False):
     global DEBUG_MODE
     DEBUG_MODE = verbose
 
-    print("🤖 Hybrid RAG Chat System")
+    print("🤖RAG Chat System")
     if verbose:
         print("🔍 Verbose mode: ON (showing debug information)")
     else:
@@ -472,7 +471,7 @@ def run_interactive_chat(verbose=False):
             print(f"❌ Error: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Hybrid RAG Chat System")
+    parser = argparse.ArgumentParser(description="RAG Chat System")
     parser.add_argument(
         "--verbose", "-v",
         action="store_true",
