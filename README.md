@@ -1,4 +1,4 @@
-# 🤖 Hybrid Graph RAG Chat System with Neo4j Visualization
+# 🤖 Graph RAG Chat System with Neo4j Visualization
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -7,12 +7,12 @@
 
 A sophisticated **Retrieval-Augmented Generation (RAG)** system that combines the power of **Knowledge Graphs** with **Large Language Models** to provide intelligent question-answering with interactive graph visualizations. Built with Neo4j, LangChain, Groq, and Gradio.
 
-![System Architecture](https://img.shields.io/badge/Architecture-Hybrid_RAG-blueviolet)
+![System Architecture](https://img.shields.io/badge/Architecture-_RAG-blueviolet)
 
 ## 🌟 Features
 
 ### Core Capabilities
-- **🔍 Hybrid RAG Architecture**: Combines structured graph data with LLM reasoning for accurate, context-aware responses
+- **🔍 RAG Architecture**: Combines structured graph data with LLM reasoning for accurate, context-aware responses
 - **📊 Interactive Knowledge Graph Visualization**: Real-time graph generation using PyVis with Neo4j backend
 - **💬 Conversational Interface**: Clean, intuitive Gradio-based chat UI with dual-tab layout
 - **🔧 Debug Mode**: Toggle-able verbose logging for development and troubleshooting
@@ -111,8 +111,8 @@ Youtube,419547928147928131,Streaming Media Software,438671598912938066,...
 
 ### Processing Pipeline
 
-1. **Document Loading**: CSV files are loaded using [`CSVLoader`](hybrid_graph_rag_structured.py:85)
-2. **Graph Transformation**: Documents are converted to graph format using [`LLMGraphTransformer`](hybrid_graph_rag_structured.py:114)
+1. **Document Loading**: CSV files are loaded using [`CSVLoader`](graph_rag_structured.py:85)
+2. **Graph Transformation**: Documents are converted to graph format using [`LLMGraphTransformer`](graph_rag_structured.py:114)
 3. **Neo4j Storage**: Graph documents are stored in Neo4j with relationships
 4. **Pickle Caching**: Processed documents are cached for faster subsequent runs
 
@@ -129,10 +129,10 @@ Access the interface at: `http://localhost:7860`
 #### Method 2: Command-Line Interface
 ```bash
 # Normal mode
-python hybrid_graph_rag_structured.py
+python graph_rag_structured.py
 
 # Verbose/Debug mode
-python hybrid_graph_rag_structured.py --verbose
+python graph_rag_structured.py --verbose
 ```
 
 ### Using the Web Interface
@@ -159,7 +159,7 @@ python hybrid_graph_rag_structured.py --verbose
 Toggle debug mode in the UI or set programmatically:
 
 ```python
-DEBUG_MODE = True  # In app.py or hybrid_graph_rag_structured.py
+DEBUG_MODE = True  # In app.py or graph_rag_structured.py
 ```
 
 Debug mode provides:
@@ -183,7 +183,7 @@ net = Network(
 
 ### LLM Configuration
 
-Modify the model in [`hybrid_graph_rag_structured.py`](hybrid_graph_rag_structured.py:41):
+Modify the model in ['graph_rag_structured.py`](hybrgraph_rag_structured.py:41):
 
 ```python
 chat = ChatGroq(
@@ -198,7 +198,7 @@ chat = ChatGroq(
 Graph-RAG-Chat-System-with-Neo4j-Graph-Visualization-LangChain-Groq-Gradio-/
 │
 ├── app.py                          # Gradio web interface
-├── hybrid_graph_rag_structured.py  # Core RAG logic & CLI
+├── _graph_rag_structured.py  # Core RAG logic & CLI
 ├── requirements.txt                # Python dependencies
 ├── IY2.csv                        # Sample data
 ├── graph_documents.pkl            # Cached graph documents
@@ -214,7 +214,7 @@ Graph-RAG-Chat-System-with-Neo4j-Graph-Visualization-LangChain-Groq-Gradio-/
 
 ## 🔑 Key Components
 
-### 1. Entity Extraction ([`hybrid_graph_rag_structured.py`](hybrid_graph_rag_structured.py:239-250))
+### 1. Entity Extraction ([`_graph_rag_structured.py`](_graph_rag_structured.py:239-250))
 ```python
 class Entities(BaseModel):
     names: List[str] = Field(
@@ -224,7 +224,7 @@ class Entities(BaseModel):
 entity_chain = prompt | chat.with_structured_output(Entities)
 ```
 
-### 2. Structured Retrieval ([`hybrid_graph_rag_structured.py`](hybrid_graph_rag_structured.py:260-324))
+### 2. Structured Retrieval ([`_graph_rag_structured.py`](_graph_rag_structured.py:260-324))
 - Traverses Neo4j graph at any depth
 - Retrieves incoming and outgoing relationships
 - Case-insensitive entity matching
