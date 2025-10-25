@@ -4,7 +4,7 @@ from pyvis.network import Network
 import os
 import webbrowser
 from dotenv import load_dotenv
-from hybrid_graph_rag_structured import entity_chain, chain
+from graph_rag_structured import entity_chain, chain
 
 load_dotenv()
 
@@ -221,8 +221,8 @@ def toggle_debug_mode(current_status):
     
     # Update debug mode in the structured retriever module
     try:
-        import hybrid_graph_rag_structured
-        hybrid_graph_rag_structured.DEBUG_MODE = DEBUG_MODE
+        import graph_rag_structured
+        graph_rag_structured.DEBUG_MODE = DEBUG_MODE
     except:
         pass
     
@@ -239,10 +239,10 @@ def clear_all():
     return [], "", None, "Ready to process your question...", gr.update(visible=False), ""
 
 # Create Gradio Interface
-with gr.Blocks(theme=gr.themes.Soft(), title="Hybrid RAG Chat with Graph Visualization") as demo:
+with gr.Blocks(theme=gr.themes.Soft(), title="RAG Chat with Graph Visualization") as demo:
     
     gr.Markdown("""
-    # 🤖 Hybrid RAG Chat System with Graph Visualization
+    # 🤖 RAG Chat System with Graph Visualization
     
     Ask a question to get both a text answer and an interactive knowledge graph visualization.
     """)
@@ -339,7 +339,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Hybrid RAG Chat with Graph Visuali
     )
 
 if __name__ == "__main__":
-    print("🚀 Starting Unified Hybrid RAG Chat System...")
+    print("🚀 Starting Unified RAG Chat System...")
     print("💡 One question → Text answer + Graph visualization")
     
     demo.launch(
